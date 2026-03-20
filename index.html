@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9: A Sala de Jantar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Otimizado para a Apostila */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print { display: none; }
+            .page-break { page-break-before: always; }
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; color: #374151; }
+        .page { width: 210mm; min-height: 297mm; padding: 15mm; margin: 1cm auto; background: white; box-shadow: 0 0 15px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .title-font { font-family: 'Playfair Display', serif; }
+        
+        /* Cores */
+        .fr-blue-text { color: #0055A4; }
+        .fr-red-text { color: #EF4135; }
+        .fr-blue-bg { background-color: #0055A4; }
+        .fr-red-bg { background-color: #EF4135; }
+
+        /* --- Secções --- */
+        .section-header { font-family: 'Playfair Display', serif; font-size: 2rem; color: #0055A4; border-bottom: 3px solid #0055A4; padding-bottom: 0.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; }
+        .section-header span { font-size: 2.5rem; margin-right: 1rem; }
+        
+        /* Secção 1: Cabeçalho da Aula */
+        .lesson-header { padding: 1.5rem; background-color: #f0f5ff; border: 1px solid #0055A4; border-left-width: 10px; text-align: center; border-radius: 8px; }
+        .lesson-header h1 { font-size: 2.8rem; color: #0055A4; margin: 0; }
+        .lesson-header h2 { font-size: 1.5rem; color: #374151; font-family: 'Inter', sans-serif; font-weight: 600; margin-top: 0.5rem; }
+        .lesson-header p { margin-top: 1rem; font-size: 1rem; color: #4b5563; }
+
+        /* Secção 2: Aula Gramatical */
+        .grammar-box { background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .grammar-box h4 { font-family: 'Playfair Display'; font-size: 1.4rem; color: #0055A4; margin-top: 0; margin-bottom: 1rem; }
+        .grammar-box table { font-size: 0.9rem; }
+        .grammar-box table th { background-color: #dbeafe; color: #1e3a8a; }
+
+        /* Dica de Pronúncia */
+        .pronunciation-tip { background-color: #fffbe6; border: 1px solid #fde68a; border-left: 5px solid #f59e0b; padding: 1.5rem; margin-top: 1.5rem; border-radius: 8px; }
+        .pronunciation-tip h4 { color: #b45309; }
+        .ipa-sound { font-weight: bold; color: #b45309; }
+
+        /* Tabelas Gerais */
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #d1d5db; padding: 10px; text-align: left; font-size: 0.85rem; vertical-align: top; }
+        th { background-color: #0055A4; color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f3f4f6; }
+        .audio-link { text-decoration: none; font-size: 1.3em; }
+        .ipa-text { display: block; margin-top: 4px; color: #4b5563; font-family: Consolas, monospace; }
+        .phonetics-text { display: block; margin-top: 2px; color: #6b7280; font-style: italic; }
+
+        /* Secção 4: Texto e Quiz */
+        .text-container { background-color: #fff; border: 1px solid #e5e7eb; padding: 1.5rem; border-radius: 8px; line-height: 1.6; }
+        .quiz-container { background-color: #f0f5ff; border: 1px solid #93c5fd; padding: 1.5rem; margin-top: 1.5rem; border-radius: 8px; }
+        .quiz-container ol { list-style-type: decimal; padding-left: 1.5rem; }
+        .quiz-container li { margin-bottom: 1rem; }
+        .quiz-container ul { list-style-type: upper-alpha; padding-left: 1.5rem; margin-top: 0.5rem; }
+        details { cursor: pointer; margin-top: 1rem; }
+        summary { font-weight: 600; color: #0055A4; }
+        .answer { background-color: #e0f2fe; padding: 0.5rem; border-radius: 5px; margin-top: 0.5rem; }
+
+        /* Secção 6: Exercícios */
+        .exercises-container { background-color: #fafafa; border: 1px solid #e5e7eb; padding: 1.5rem; border-radius: 8px; }
+        .exercises-container ol { list-style-type: decimal; padding-left: 1.5rem; }
+        .fill-in-blank { display: inline-block; width: 120px; border-bottom: 1px solid #999; margin: 0 5px; text-align: center; }
+
+        /* Rodapé */
+        .page-footer { margin-top: auto; padding-top: 1rem; text-align: center; }
+        .footer-line { display: flex; height: 3px; }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- Secção 1: Apresentação da Aula -->
+        <section class="lesson-header">
+            <h2 class="title-font fr-blue-text">Aula 9</h2>
+            <h1 class="title-font">A Sala de Jantar</h1>
+            <p><strong>Tema Central:</strong> Expressões para as refeições, servir e pedir comida em casa. <br>
+            <strong>Foco Gramatical:</strong> Verbo "prendre" e "vouloir" (no condicional de cortesia: "je voudrais").</p>
+        </section>
+
+        <!-- Secção 2: Aula Gramatical -->
+        <section>
+            <h3 class="section-header"><span>📖</span>Aula Gramatical</h3>
+            <div class="grammar-box">
+                <h4>Subtópico 1: O Verbo "Prendre" (Apanhar, Tomar, Comer/Beber)</h4>
+                <p>"Prendre" é um verbo irregular muito versátil. No contexto das refeições, significa "comer" ou "beber" algo. É usado constantemente, por exemplo, para falar do pequeno-almoço ou de um café.</p>
+                <p><strong>Conjugação no Presente do Indicativo (Irregular):</strong></p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Pronome</th><th>Verbo Conjugado</th><th>Exemplo</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Je</strong></td><td>prend<strong>s</strong></td><td>Je <strong>prends</strong> un café. (Eu tomo um café.)</td></tr>
+                            <tr><td><strong>Tu</strong></td><td>prend<strong>s</strong></td><td>Tu <strong>prends</strong> le petit-déjeuner. (Tu tomas o pequeno-almoço.)</td></tr>
+                            <tr><td><strong>Il/Elle/On</strong></td><td>pren<strong>d</strong></td><td>Elle <strong>prend</strong> de la soupe. (Ela come sopa.)</td></tr>
+                            <tr><td><strong>Nous</strong></td><td>pren<strong>ons</strong></td><td>Nous <strong>prenons</strong> le dessert. (Nós comemos a sobremesa.)</td></tr>
+                            <tr><td><strong>Vous</strong></td><td>pren<strong>ez</strong></td><td>Vous <strong>prenez</strong> du vin ? (O senhor bebe vinho?)</td></tr>
+                            <tr><td><strong>Ils/Elles</strong></td><td>pre<strong>nnent</strong></td><td>Ils <strong>prennent</strong> le dîner ensemble. (Eles jantam juntos.)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+             <div class="grammar-box">
+                <h4>Subtópico 2: "Vouloir" e o Condicional de Cortesia "Je voudrais"</h4>
+                <p>O verbo "vouloir" significa "querer". Embora a sua conjugação no presente ("je veux") seja comum, usar o condicional <strong>"je voudrais"</strong> é uma forma muito mais educada e polida de pedir algo, correspondendo a "eu gostaria" ou "eu queria".</p>
+                <p><strong>"Je voudrais" é a forma preferida para fazer pedidos em restaurantes, lojas ou em casa de alguém.</strong></p>
+                 <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Forma Direta (Presente)</th><th>Forma Polida (Condicional)</th><th>Tradução</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td>Je <strong>veux</strong> de l'eau.</td>
+                                <td>Je <strong>voudrais</strong> de l'eau, s'il vous plaît.</td>
+                                <td>Eu gostaria de água, por favor.</td>
+                            </tr>
+                             <tr>
+                                <td>Tu <strong>veux</strong> du pain ?</td>
+                                <td>Tu <strong>voudrais</strong> du pain ?</td>
+                                <td>Gostarias de pão?</td>
+                            </tr>
+                            <tr>
+                                <td>Elle <strong>veut</strong> le sel.</td>
+                                <td>Elle <strong>voudrait</strong> le sel.</td>
+                                <td>Ela gostaria do sal.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-2 text-sm"><strong>Dica:</strong> Para soar natural e educado, habitue-se a usar "je voudrais" para todos os seus pedidos. É uma das expressões mais úteis que pode aprender.</p>
+            </div>
+
+            <div class="pronunciation-tip">
+                <h4>💡 Dica de Pronúncia: O Som "ou" /u/ em "Vouloir"</h4>
+                <p>A combinação de letras "ou", como em "v<strong>ou</strong>l<strong>ou</strong>r" ou "n<strong>ou</strong>s", produz um som <span class="ipa-sound">/u/</span>, que é exatamente igual ao "u" da palavra portuguesa "tu". É um som fácil de replicar.</p>
+                <p>Não o confunda com o "u" francês sozinho (como em "tu"), que tem um som diferente. Pratique: v<strong>ou</strong>s, n<strong>ou</strong>s, s<strong>ou</strong>pe, p<strong>ou</strong>r.</p>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Secção 3: Frases do Tema -->
+        <section>
+            <h3 class="section-header"><span>🗣️</span>50 Frases do Tema</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Frase em Francês</th><th>Pronúncia (IPA e Simplificada)</th><th>Tradução</th></tr></thead>
+                    <tbody>
+                        <!-- Pedidos com "Je voudrais" (1-15) -->
+                        <tr><td>Je voudrais de l'eau, s'il vous plaît. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Je%20voudrais%20de%20l'eau%2C%20s'il%20vous%20pla%C3%AEt&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒə vudʁɛ də lo sil vu plɛ/</span><span class="phonetics-text">je vu-dré de lô sil vu plé</span></td><td>Eu gostaria de água, por favor.</td></tr>
+                        <tr><td>Je voudrais encore un peu de pain. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Je%20voudrais%20encore%20un%20peu%20de%20pain&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒə vudʁɛ ɑ̃kɔʁ ɛ̃ pø də pɛ̃/</span><span class="phonetics-text">je vu-dré an-cór an pé de pan</span></td><td>Gostaria de mais um pouco de pão.</td></tr>
+                        <tr><td>Est-ce que je pourrais avoir le sel ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Est-ce%20que%20je%20pourrais%20avoir%20le%20sel%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ɛs kə ʒə puʁɛ avwaʁ lə sɛl/</span><span class="phonetics-text">ésse ke je pu-ré a-vuár le séle</span></td><td>Poderia dar-me o sal?</td></tr>
+                        <tr><td>Je voudrais bien goûter ce plat. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Je%20voudrais%20bien%20go%C3%BBter%20ce%20plat&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒə vudʁɛ bjɛ̃ ɡute sə pla/</span><span class="phonetics-text">je vu-dré bi-an gu-tê se plá</span></td><td>Gostaria muito de provar este prato.</td></tr>
+                        <tr><td>Tu voudrais un café ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Tu%20voudrais%20un%20caf%C3%A9%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ty vudʁɛ ɛ̃ kafe/</span><span class="phonetics-text">tu vu-dré an ca-fê</span></td><td>Gostarias de um café?</td></tr>
+                        <!-- Usando o verbo "Prendre" (6-20) -->
+                        <tr><td>Qu'est-ce que tu prends pour le petit-déjeuner ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Qu'est-ce%20que%20tu%20prends%20pour%20le%20petit-d%C3%A9jeuner%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/kɛs kə ty pʁɑ̃ puʁ lə pəti deʒœne/</span><span class="phonetics-text">quésse ke tu pran pur le pe-tí dê-jé-nê</span></td><td>O que é que tomas ao pequeno-almoço?</td></tr>
+                        <tr><td>Je prends des céréales et un jus d'orange. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Je%20prends%20des%20c%C3%A9r%C3%A9ales%20et%20un%20jus%20d'orange&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒə pʁɑ̃ de seʁeal e ɛ̃ ʒy dɔʁɑ̃ʒ/</span><span class="phonetics-text">je pran dê sê-rê-ále e an ju do-rânje</span></td><td>Como cereais e bebo um sumo de laranja.</td></tr>
+                        <tr><td>Elle prend toujours une salade pour le déjeuner. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Elle%20prend%20toujours%20une%20salade%20pour%20le%20d%C3%A9jeuner&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ɛl pʁɑ̃ tuʒuʁ yn salad puʁ lə deʒœne/</span><span class="phonetics-text">él pran tu-júr un sa-láde pur le dê-jé-nê</span></td><td>Ela come sempre uma salada ao almoço.</td></tr>
+                        <tr><td>Nous prenons le dîner à vingt heures. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Nous%20prenons%20le%20d%C3%A9jeuner%20%C3%A0%20vingt%20heures&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/nu pʁənɔ̃ lə dine a vɛ̃t‿ œʁ/</span><span class="phonetics-text">nu pre-non le di-nê á van-tér</span></td><td>Nós jantamos às vinte horas.</td></tr>
+                        <tr><td>Vous prenez un dessert ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Vous%20prenez%20un%20dessert%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/vu pʁəne ɛ̃ desɛʁ/</span><span class="phonetics-text">vu pre-nê an de-sér</span></td><td>Vão comer sobremesa?</td></tr>
+                        <tr><td>Ils prennent un verre de vin rouge. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Ils%20prennent%20un%20verre%20de%20vin%20rouge&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/il pʁɛn ɛ̃ vɛʁ də vɛ̃ ʁuʒ/</span><span class="phonetics-text">il préne an vér de van Rúje</span></td><td>Eles bebem um copo de vinho tinto.</td></tr>
+                         <!-- Frases à mesa (21-50) -->
+                        <tr><td>À table ! Le dîner est prêt. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=%C3%80%20table%20!%20Le%20d%C3%A9jeuner%20est%20pr%C3%AAt&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/a tabl lə dine ɛ pʁɛ/</span><span class="phonetics-text">á tá-ble! le di-nê é pré</span></td><td>Para a mesa! O jantar está pronto.</td></tr>
+                        <tr><td>Bon appétit ! <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Bon%20app%C3%A9tit%20!&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/bɔn‿ apeti/</span><span class="phonetics-text">bó-na-pe-tí</span></td><td>Bom apetite!</td></tr>
+                        <tr><td>Passe-moi le pain, s'il te plaît. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Passe-moi%20le%20pain%2C%20s'il%20te%20pla%C3%AEt&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/pas mwa lə pɛ̃ sil tə plɛ/</span><span class="phonetics-text">pásse-muá le pan, sil te plé</span></td><td>Passa-me o pão, por favor.</td></tr>
+                        <tr><td>Tu veux encore de la salade ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Tu%20veux%20encore%20de%20la%20salade%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ty vø ɑ̃kɔʁ də la salad/</span><span class="phonetics-text">tu vé an-cór de la sa-láde</span></td><td>Queres mais salada?</td></tr>
+                        <tr><td>Non merci, c'est assez. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Non%20merci%2C%20c'est%20assez&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/nɔ̃ mɛʁsi sɛt‿ ase/</span><span class="phonetics-text">non mer-sí, sé-ta-sê</span></td><td>Não, obrigado, é suficiente.</td></tr>
+                        <tr><td>C'est délicieux ! <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=C'est%20d%C3%A9licieux%20!&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/sɛ de.li.sjø/</span><span class="phonetics-text">sé dê-li-si-é</span></td><td>Está delicioso!</td></tr>
+                        <tr><td>Il faut mettre la table. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Il%20faut%20mettre%20la%20table&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/il fo mɛtʁ la tabl/</span><span class="phonetics-text">il fô mé-tre la tá-ble</span></td><td>É preciso pôr a mesa.</td></tr>
+                        <tr><td>Où sont les couverts ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=O%C3%B9%20sont%20les%20couverts%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/u sɔ̃ le kuvɛʁ/</span><span class="phonetics-text">ú son lê cu-vér</span></td><td>Onde estão os talheres?</td></tr>
+                        <tr><td>J'ai besoin d'une fourchette et d'un couteau. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=J'ai%20besoin%20d'une%20fourchette%20et%20d'un%20couteau&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒe bə.zwɛ̃ dyn fuʁʃɛt e dœ̃ kuto/</span><span class="phonetics-text">jê be-zuan dun fur-xéte e dan cu-tô</span></td><td>Preciso de um garfo e de uma faca.</td></tr>
+                        <tr><td>N'oublie pas la cuillère pour la soupe. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=N'oublie%20pas%20la%20cuill%C3%A8re%20pour%20la%20soupe&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/nubli pa la kɥijɛʁ puʁ la sup/</span><span class="phonetics-text">nu-blí pá la cui-iér pur la súpe</span></td><td>Não te esqueças da colher para a sopa.</td></tr>
+                        <tr><td>Je n'aime pas les épinards. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Je%20n'aime%20pas%20les%20%C3%A9pinards&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒə nɛm pa le.z‿epinaʁ/</span><span class="phonetics-text">je ném pá lê-zê-pi-nár</span></td><td>Eu não gosto de espinafres.</td></tr>
+                        <tr><td>Le plat principal est du poulet avec des frites. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Le%20plat%20principal%20est%20du%20poulet%20avec%20des%20frites&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/lə pla pʁɛ̃sipal ɛ dy pulɛ avɛk de fʁit/</span><span class="phonetics-text">le plá pran-si-pál é du pu-lé a-véc dê fríte</span></td><td>O prato principal é frango com batatas fritas.</td></tr>
+                        <tr><td>Servez-vous ! <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Servez-vous%20!&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/sɛʁve vu/</span><span class="phonetics-text">sér-vê vu</span></td><td>Sirva-se!</td></tr>
+                        <tr><td>Je ne prends pas de dessert, merci. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Je%20ne%20prends%20pas%20de%20dessert%2C%20merci&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒə nə pʁɑ̃ pa də desɛʁ mɛʁsi/</span><span class="phonetics-text">je ne pran pá de de-sér, mer-sí</span></td><td>Não como sobremesa, obrigado.</td></tr>
+                        <tr><td>Est-ce que tu peux me passer la carafe d'eau ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Est-ce%20que%20tu%20peux%20me%20passer%20la%20carafe%20d'eau%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ɛs kə ty pø mə pase la kaʁaf do/</span><span class="phonetics-text">ésse ke tu pé me pa-sê la ca-ráfe dô</span></td><td>Podes passar-me o jarro de água?</td></tr>
+                        <tr><td>Je voudrais juste un morceau de fromage. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Je%20voudrais%20juste%20un%20morceau%20de%20fromage&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒə vudʁɛ ʒyst ɛ̃ mɔʁso də fʁɔmaʒ/</span><span class="phonetics-text">je vu-dré júste an mor-sô de fro-máje</span></td><td>Gostaria apenas de um pedaço de queijo.</td></tr>
+                        <tr><td>Les assiettes sont dans le placard. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Les%20assiettes%20sont%20dans%20le%20placard&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/le.z‿asjɛt sɔ̃ dɑ̃ lə plakaʁ/</span><span class="phonetics-text">lê-za-si-éte son dan le pla-cár</span></td><td>Os pratos estão no armário.</td></tr>
+                        <tr><td>Qui veut du café ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Qui%20veut%20du%20caf%C3%A9%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ki vø dy kafe/</span><span class="phonetics-text">qui vé du ca-fê</span></td><td>Quem quer café?</td></tr>
+                        <tr><td>J'ai bien mangé. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=J'ai%20bien%20mang%C3%A9&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ʒe bjɛ̃ mɑ̃ʒe/</span><span class="phonetics-text">jê bi-an man-jê</span></td><td>Comi bem.</td></tr>
+                        <tr><td>On prend l'apéritif avant de manger. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=On%20prend%20l'ap%C3%A9ritif%20avant%20de%20manger&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ɔ̃ pʁɑ̃ lapeʁitif avɑ̃ də mɑ̃ʒe/</span><span class="phonetics-text">on pran la-pê-ri-tífe a-van de man-jê</span></td><td>Tomamos o aperitivo antes de comer.</td></tr>
+                        <tr><td>Il manque une serviette de table. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Il%20manque%20une%20serviette%20de%20table&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/il mɑ̃k yn sɛʁvjɛt də tabl/</span><span class="phonetics-text">il mânque un sér-vi-éte de tá-ble</span></td><td>Falta um guardanapo.</td></tr>
+                        <tr><td>Ce n'est pas assez salé pour moi. <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Ce%20n'est%20pas%20assez%20sal%C3%A9%20pour%20moi&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/sə nɛ pa.z‿ase sale puʁ mwa/</span><span class="phonetics-text">se né pá-za-sê sa-lê pur muá</span></td><td>Não está salgado o suficiente para mim.</td></tr>
+                        <tr><td>Qui débarrasse la table ? <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Qui%20d%C3%A9barrasse%20la%20table%20%3F&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td><td><span class="ipa-text">/ki debaʁas la tabl/</span><span class="phonetics-text">qui dê-ba-rásse la tá-ble</span></td><td>Quem levanta a mesa?</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Secção 4: Texto e Quiz -->
+        <section>
+            <h3 class="section-header"><span>✍️</span>Texto e Quiz</h3>
+            <div class="text-container">
+                <h4>Un Dîner à la Maison (Um Jantar em Casa)</h4>
+                <p>
+                    <strong>Paul:</strong> À table ! Le dîner est prêt. Servez-vous.<br>
+                    <strong>Marie:</strong> Mmm, ça sent bon ! Qu'est-ce que tu as préparé ?<br>
+                    <strong>Paul:</strong> Je prends un peu de tout. Je voudrais commencer par la soupe, s'il te plaît.<br>
+                    <strong>Marie:</strong> Bien sûr. Et qu'est-ce que tu voudrais boire ? Tu prends du vin ou de l'eau ?<br>
+                    <strong>Paul:</strong> Je voudrais juste un verre d'eau, merci. Le vin, ce n'est pas pour moi ce soir.<br>
+                    <strong>Marie:</strong> D'accord. Est-ce que tu peux me passer le sel ? Ce n'est pas assez salé.<br>
+                    <strong>Paul:</strong> Voilà. Bon appétit !<br>
+                    <strong>Marie:</strong> Merci, à toi aussi ! C'est vraiment délicieux.
+                </p>
+            </div>
+            <div class="quiz-container">
+                <h4>Quiz de Compreensão</h4>
+                <ol>
+                    <li><strong>O que é que Paul gostaria de beber?</strong>
+                        <ul><li>A) Um copo de vinho.</li><li>B) Um copo de água.</li><li>C) Um sumo de laranja.</li></ul>
+                    </li>
+                    <li><strong>O que é que Marie pede a Paul?</strong>
+                        <ul><li>A) O pão.</li><li>B) O vinho.</li><li>C) O sal.</li></ul>
+                    </li>
+                    <li><strong>Como é que Paul diz "Eu gostaria de começar pela sopa"?</strong>
+                        <ul><li>A) "Je veux commencer par la soupe."</li><li>B) "Je voudrais commencer par la soupe."</li><li>C) "Je prends la soupe."</li></ul>
+                    </li>
+                </ol>
+                <details><summary>Ver Gabarito</summary><div class="answer">1-B, 2-C, 3-B</div></details>
+            </div>
+        </section>
+
+        <!-- Secção 5: Vocabulário da Aula -->
+        <section>
+            <h3 class="section-header"><span>📚</span>Vocabulário da Aula</h3>
+             <div class="table-wrapper">
+                <table>
+                     <thead><tr><th>Palavra</th><th>Tradução e Pronúncia</th><th>Palavra</th><th>Tradução e Pronúncia</th></tr></thead>
+                     <tbody>
+                        <tr>
+                            <td><strong>Table</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Table&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Mesa <span class="ipa-text">/tabl/</span> <span class="phonetics-text">tá-ble</span></td>
+                            <td><strong>Assiette</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Assiette&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Prato <span class="ipa-text">/a.sjɛt/</span> <span class="phonetics-text">a-si-éte</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Verre</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Verre&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Copo <span class="ipa-text">/vɛʁ/</span> <span class="phonetics-text">vér</span></td>
+                            <td><strong>Couverts</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Couverts&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Talheres <span class="ipa-text">/ku.vɛʁ/</span> <span class="phonetics-text">cu-vér</span></td>
+                        </tr>
+                         <tr>
+                            <td><strong>Fourchette</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Fourchette&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Garfo <span class="ipa-text">/fuʁ.ʃɛt/</span> <span class="phonetics-text">fur-xéte</span></td>
+                            <td><strong>Couteau</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Couteau&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Faca <span class="ipa-text">/ku.to/</span> <span class="phonetics-text">cu-tô</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cuillère</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Cuill%C3%A8re&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Colher <span class="ipa-text">/kɥi.jɛʁ/</span> <span class="phonetics-text">cui-iér</span></td>
+                            <td><strong>Serviette</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Serviette%20de%20table&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Guardanapo <span class="ipa-text">/sɛʁ.vjɛt/</span> <span class="phonetics-text">sér-vi-éte</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Repas</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Repas&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Refeição <span class="ipa-text">/ʁə.pɑ/</span> <span class="phonetics-text">re-pá</span></td>
+                            <td><strong>Plat</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Plat&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Prato (comida) <span class="ipa-text">/pla/</span> <span class="phonetics-text">plá</span></td>
+                        </tr>
+                         <tr>
+                            <td><strong>Petit-déjeuner</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Petit-d%C3%A9jeuner&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Pequeno-almoço <span class="ipa-text">/pə.ti.de.ʒœ.ne/</span> <span class="phonetics-text">pe-tí-dê-jé-nê</span></td>
+                            <td><strong>Déjeuner</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=D%C3%A9jeuner&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Almoço <span class="ipa-text">/de.ʒœ.ne/</span> <span class="phonetics-text">dê-jé-nê</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dîner</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=D%C3%Aener&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Jantar <span class="ipa-text">/di.ne/</span> <span class="phonetics-text">di-nê</span></td>
+                            <td><strong>Dessert</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Dessert&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Sobremesa <span class="ipa-text">/de.sɛʁ/</span> <span class="phonetics-text">de-sér</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pain</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Pain&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Pão <span class="ipa-text">/pɛ̃/</span> <span class="phonetics-text">pan</span></td>
+                            <td><strong>Eau</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Eau&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Água <span class="ipa-text">/o/</span> <span class="phonetics-text">ô</span></td>
+                        </tr>
+                         <tr>
+                            <td><strong>Sel</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Sel&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Sal <span class="ipa-text">/sɛl/</span> <span class="phonetics-text">sél</span></td>
+                            <td><strong>Poivre</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Poivre&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Pimenta <span class="ipa-text">/pwavʁ/</span> <span class="phonetics-text">puá-vre</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prêt(e)</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=Pr%C3%AAt&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Pronto(a) <span class="ipa-text">/pʁɛ(t)/</span> <span class="phonetics-text">pré(te)</span></td>
+                            <td><strong>Délicieux(-euse)</strong> <a href="https://translate.google.com/translate_tts?ie=UTF-8&q=D%C3%A9licieux&tl=fr&client=tw-ob" target="_blank" class="audio-link">🔊</a></td>
+                            <td>Delicioso(a) <span class="ipa-text">/de.li.sjø(z)/</span> <span class="phonetics-text">dê-li-si-é(ze)</span></td>
+                        </tr>
+                     </tbody>
+                 </table>
+             </div>
+        </section>
+        
+        <div class="page-break"></div>
+
+        <!-- Secção 6: Exercícios Práticos -->
+        <section>
+            <h3 class="section-header"><span>✏️</span>Exercícios Práticos</h3>
+            <div class="exercises-container">
+                 <ol class="list-decimal pl-5 space-y-4">
+                    <li>Conjugue o verbo: "Je (prendre) un thé."</li>
+                    <li>Transforme o pedido em uma forma polida: "Je veux du pain."</li>
+                    <li>Traduza para francês: "Eles comem a sobremesa."</li>
+                    <li>Conjugue o verbo: "Vous (prendre) du café ?"</li>
+                    <li>Traduza: "Gostaria de um copo de água, por favor."</li>
+                    <li>Conjugue o verbo: "Nous (prendre) le dîner."</li>
+                    <li>Faça o pedido de forma educada: "(le sel)" -> Je voudrais...</li>
+                    <li>Traduza para francês: "Ela não come carne." (use "prendre")</li>
+                    <li>Conjugue o verbo: "Tu (prendre) quoi ?" (O que é que tu comes/bebes?)</li>
+                    <li>Transforme em pergunta polida: "Tu veux du fromage ?"</li>
+                    <li>Traduza: "Nós gostaríamos de mais vinho."</li>
+                    <li>Conjugue o verbo: "Elles (prendre) une salade."</li>
+                    <li>Faça o pedido de forma educada: "(une fourchette)" -> Je voudrais...</li>
+                    <li>Traduza para francês: "Eu tomo o pequeno-almoço às oito."</li>
+                    <li>Conjugue o verbo: "Il (prendre) son temps pour manger."</li>
+                 </ol>
+                 <details>
+                    <summary>Ver Gabarito</summary>
+                    <div class="answer">
+                        1. prends | 2. Je voudrais du pain. | 3. Ils prennent le dessert. | 4. prenez | 5. Je voudrais un verre d'eau, s'il vous plaît. | 6. prenons | 7. Je voudrais le sel. | 8. Elle ne prend pas de viande. | 9. prends | 10. Tu voudrais du fromage ? | 11. Nous voudrions plus de vin. | 12. prennent | 13. Je voudrais une fourchette. | 14. Je prends le petit-déjeuner à huit heures. | 15. prend
+                    </div>
+                </details>
+            </div>
+        </section>
+        
+        <!-- Secção 7: Conclusão -->
+        <section>
+             <h3 class="section-header"><span>🏁</span>Conclusão e Como Continuar a Aprender</h3>
+             <div class="grammar-box">
+                <p><strong>Bravo !</strong> Chegou ao fim da aula 9. Agora sabe como falar sobre refeições, usar o verbo "prendre" neste contexto e, mais importante, como pedir coisas de forma educada com "je voudrais". Esta é uma competência social e linguística de grande valor!</p>
+                <h4>Dicas para praticar:</h4>
+                <ul>
+                    <li><strong>Pedidos Polidos:</strong> Durante o dia, mesmo em português, pense em como pediria as coisas em francês. Em vez de "Quero um café", pense "Je voudrais un café".</li>
+                    <li><strong>Narrar as Refeições:</strong> À hora do pequeno-almoço, almoço ou jantar, descreva o que está a "prendre". "Pour le déjeuner, je prends du poisson et des légumes."</li>
+                    <li><strong>Simular um Jantar:</strong> Imagine que está a receber amigos em casa. Que frases usaria? "Servez-vous !", "Tu voudrais encore un peu de vin ?", "Passe-moi le pain, s'il te plaît.".</li>
+                </ul>
+                <p>Na próxima aula, vamos sair para fazer compras e visitar o <strong>supermercado</strong>. Aprenderemos a falar sobre alimentos, quantidades e preços. <strong>À bientôt !</strong> (Até breve!)</p>
+             </div>
+        </section>
+
+        <footer class="page-footer">
+            <div class="footer-line"><div class="w-1/3 fr-blue-bg"></div><div class="w-1/3 bg-white"></div><div class="w-1/3 fr-red-bg"></div></div>
+            <p class="text-xs text-gray-500 mt-2">Apostila de Francês Completa - Aula 9</p>
+        </footer>
+    </div>
+
+</body>
+</html>
